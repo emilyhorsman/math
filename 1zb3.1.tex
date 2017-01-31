@@ -49,4 +49,68 @@ $\int_{a}^{\infty} g(x)dx$ must be convergent too.\\
 If $\int_{a}^{\infty} g(x)dx$ is divergent then the ``larger'' integral
 $\int_{a}^{\infty} f(x)dx$ must be divergent too.\\
 
+
+\section{Sequences}
+
+
+\subsection{Precise Limit Definition}
+
+Say we have an arbitrary number $\epsilon > 0$ as a ``tolerance band'' from the limit $L$.
+Assume the sequence converges.
+There will be some integer $N$ where every $n > N$ holds $\left|a_n - L\right| < \epsilon$.
+\\
+\\
+This allows subsequent terms in the sequence to oscillate around the limit $L$, so long as they remain in our tolerance band $\epsilon$.
+
+
+\subsection{Convergence}
+
+A sequence is convergent if:
+\begin{itemize}
+\item Its limit exists.
+\item We can make $a_n$ closer and closer to $L$ by increasing $n$.
+\end{itemize}
+
+
+\subsection{Limit Theorems}
+
+\begin{itemize}
+\item If $\lim_{x\to\infty} f(x) = L$ and $f(n) = a_n$ when $n$ is an integer, then the sequence has the same limit.
+    Essentially, if a function has the same value as the sequence for every integer, then its limit is the same.
+\item Given an arbitrary value, there will be a number $N$ where every $a_n, n > N$ is larger than the arbitrary value, if the sequence diverges to infinity.
+\item $\lim_{n\to\infty} a_n^p = \left[\lim_{n\to\infty} a_n\right]^p$ if $p > 0$ and $a_n > 0$
+\item $\lim_{n\to\infty} \left|a_n\right| = 0$ then $\lim_{n\to\infty} a_n = 0$. If the limit of the absolute terms of the sequence is 0, then the limit of the terms is 0.
+\item If the terms of a convergent sequence ($\lim a_n = L$) are applied to a continuous function, then the result is convergent too. $$\lim_{n\to\infty} f(a_n) = f(L)$$
+\end{itemize}
+
+
+\subsection{Squeeze Theorem}
+
+If $a_n \leq b_n \leq c_n$ for $n \geq n_0$ and
+$$\lim_{n\to\infty} a_n = \lim_{n\to\infty} c_n = L$$
+then
+$$\lim_{n\to\infty} b_n = L$$
+
+
+\subsection{${r^n} sequences$}
+
+Sequences defined as ${r^n}$ are convergent if $-1 < r \leq 1$.
+
+\[ \lim_{n\to\infty} r^n =
+    \begin{cases}
+        0 & \quad \text{if } -1 < r < 1\\
+        1 & \quad \text{if } r = 1\\
+    \end{cases}
+\]
+
+
+\subsection{Monotonic Sequence Theorem}
+
+Every bounded, monotonic sequence is convergent.
+
+
+\section{Series}
+
+
+
 \end{document}
