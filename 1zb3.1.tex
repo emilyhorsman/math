@@ -250,6 +250,27 @@ If the Alternating Series Test is satisfied then the following holds.
 \end{displaymath}
 \\
 This lets us find a desired error by simply computing a value in the sequence.
+\\
+How many terms are needed to estimate the sum $\sum \frac{(-1)^n}{n^6}$ such that $|\text{error}| < 0.00005$?\\
+\begin{align*}
+\left|\text{error}\right| \leq b_{n+1} &< \frac{1}{20000}\\
+(n+1)^6 &> 20000\\
+(5+1)^6 &> 20000\\
+    6^6 &> 20000\\
+    b_6 &> 20000\\
+\end{align*}
+The sixth term is less than the desired error.\\
+Adding the sixth term will not yield more than our desired accuracy.\\
+This means we need five terms to yield a sum with the desired accuracy.
+
+
+\subsection{Error}
+
+$$0.00005 = \frac{1}{20,000}$$
+$$0.00001 = \frac{1}{100,000}$$
+$$0.01 = \frac{1}{100}$$
+$$0.02 = \frac{1}{50}$$
+$$0.05 = \frac{1}{20}$$
 
 
 \subsection{Absolute and Conditional Convergence}
