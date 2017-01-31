@@ -1,7 +1,8 @@
 \documentclass[12pt]{article}
+\renewcommand{\baselinestretch}{1.2}
 \usepackage[letterpaper, margin=0.5in]{geometry}
 \usepackage{amsmath}
-\DeclareMathSizes{12}{14}{10}{10}
+\DeclareMathSizes{12}{13}{9.5}{9}
 
 \begin{document}
 
@@ -110,6 +111,169 @@ Every bounded, monotonic sequence is convergent.
 
 
 \section{Series}
+
+
+\subsection{Definition}
+
+A series is simply the sum of terms in a sequence.\\
+An infinite series (often simply just called a ``sum'' or ``series'') is what we get when we sum an infinite number of terms in a sequence.\\
+A partial sum is what we get when we sum a finite number of terms in a sequence, $s_3$ for ${a_n}$ is the sum of $a_1, a_2,\text{ and } a_3$.\\
+A series $s_n$ forms its own sequence ${s_n}$.\\
+As we increase $n$ in ${s_n}$ we get closer and closer to the limit---the infinite sum---of the series.\\
+\\
+\begin{displaymath}
+s_n = \sum_{i=1}^{n} a_i = a_1 + a_2 + \dots + a_n
+\end{displaymath}
+\\
+\begin{displaymath}
+s = \sum_{n=1}^{\infty} a_n = a_1 + a_2 + \dots + a_n + \dots
+\end{displaymath}
+
+
+\subsection{Example}
+
+Take the sequence $a_n = \frac{1}{2^n}$.\\
+This gives us $a_1 = \frac{1}{2}, a_2 = \frac{1}{4},\text{ etc}\dots$.\\
+$s_2$ would then be $a_1 + a_2 = \frac{3}{4}$.\\
+This forms a sequence from the series, ${\frac{1}{2}, \frac{3}{4}, \frac{7}{8}, \dots}$.\\
+This sequence converges on 1 the more terms we add.\\
+This is the infinite sum.\\
+\begin{displaymath}
+\sum_{n=1}^{\infty} \frac{1}{2^n} = \frac{1}{2} + \frac{3}{4} + \dots + \frac{1}{2^n} + \dots = 1
+\end{displaymath}
+\\
+The sum of a series is $s = \lim_{n\to\infty} s_n$.\\
+The series will be divergent---and not have a sum---if the sequence ${s_n}$ diverges.
+
+
+\subsection{Geometric Series}
+
+A geometric series occurs when each term of the sequence is multiplied by the preceding one by a common ratio.\\
+\begin{displaymath}
+a \neq 0 \quad \sum_{n=1}^{\infty} ar^{n-1} = a + ar + ar^2 + ar^3 + \dots + ar^{n-1} + \dots
+\end{displaymath}
+\\
+This series is convergent if $\left|r\right| < 1$.\\
+The partial sum is defined by the following.\\
+\begin{displaymath}
+s_n = \frac{a(1 - r^n)}{1 - r}
+\end{displaymath}
+The sum of a convergent geometric series is defined by the following.\\
+\begin{displaymath}
+\sum_{n=1}^{\infty} ar^{n-1} = \frac{a}{1-r}
+\end{displaymath}
+
+
+\subsection{Test for Divergence}
+
+If the series is convergent then the limit of $a_n$ will be 0.\\
+However, we cannot conclude that a series if convergent just because $a_n$ has a limit of 0.\\
+\begin{displaymath}
+\text{If }\sum a_n\text{ converges, then }\lim_{n\to\infty} a_n = 0
+\end{displaymath}
+\\
+Even though we cannot make conclusions about the series being convergent, we can check if the series is divergent.\\
+\begin{displaymath}
+\sum a_n\text{ divergent if }\lim_{n\to\infty} a_n \neq 0\text{ or the limit does not exist.}
+\end{displaymath}
+
+
+\subsection{Integral Test}
+
+If $f$ is continuous, positive, and decreasing on $[1, \infty)$ then let $a_n = f(n)$.\\
+\begin{displaymath}
+\text{If }\int_{1}^{\infty} f(x)dx\text{ is convergent, then }\sum_{n=1}^{\infty} a_n\text{ is convergent.}
+\end{displaymath}
+\\
+\begin{displaymath}
+\text{If }\int_{1}^{\infty} f(x)dx\text{ is divergent, then }\sum_{n=1}^{\infty} a_n\text{ is divergent.}
+\end{displaymath}
+
+
+\subsection{p-series Test}
+
+\begin{displaymath}
+\sum_{n=1}^{\infty} \frac{1}{n^p}\text{ is convergent if }p > 1\text{ and divergent if }p \leq 1\text{.}
+\end{displaymath}
+
+
+\subsection{Error with the Integral Test}
+
+Estimating an infinite sum with a finite number of terms yields a remainder $R_n = s - s_n$.\\
+This remainder is our error.\\
+\begin{displaymath}
+\int_{n+1}^{\infty} f(x)dx \leq R_n \leq \int_{n}^{\infty} f(x)dx
+\end{displaymath}
+\\
+\begin{displaymath}
+s_n + \int_{n+1}^{\infty} f(x)dx \leq s \leq s_n + \int_{n}^{\infty} f(x)dx
+\end{displaymath}
+
+
+\subsection{Comparison Tests}
+
+If $a_n \leq b_n$ for all $n$, then $\sum a_n$ will be convergent if $\sum b_n$ is convergent.\\
+If $a_n \geq b_n$ for all $n$, then $\sum a_n$ will be divergent if $\sum b_n$ is divergent.\\
+Essentially, if a bigger series is convergent, then smaller series must be as well.\\
+If a smaller series is divergent, then larger series must be as well.
+
+
+\subsection{Limit Comparison Test ($c > 0$)}
+
+\begin{displaymath}
+\lim_{n\to\infty} \frac{a_n}{b_n} = c > 0
+\end{displaymath}
+\\
+If this holds ($c > 0$) then either both $\sum a_n$ and $\sum b_n$ converge, or they both diverge.
+
+
+\subsection{Alternating Series Test}
+
+An alternating series is one defined by the following.\\
+\begin{displaymath}
+\sum (-1)^{n-1} b_n\quad b_n > 0
+\end{displaymath}
+
+If the following are satisfied then the series will be convergent.
+\begin{itemize}
+\item $b_{n+1} \leq b_n$ for all $n$
+\item $\lim_{n\to\infty} b_n = 0$
+\end{itemize}
+
+
+\subsection{Alternating Series Estimation Theorem}
+
+If the Alternating Series Test is satisfied then the following holds.
+\\
+\begin{displaymath}
+\left|R_n\right| = \left|s - s_n\right| \leq b_{n+1}
+\end{displaymath}
+\\
+This lets us find a desired error by simply computing a value in the sequence.
+
+
+\subsection{Absolute and Conditional Convergence}
+
+A series is absolutely convergent if $\sum \left|a_n\right|$ is convergent.\\
+A series is convergent if it is absolutely convergent.\\
+A series is conditionally convergent if $\sum a_n$ is convergent but not $\sum \left|a_n\right|$.\\
+
+
+\subsection{Ratio and Ratio Test}
+
+Take a series $\sum a_n$.
+\\
+\begin{displaymath}
+\lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| = L
+\end{displaymath}
+or\\
+\begin{displaymath}
+\lim_{n\to\infty} \sqrt[n]{\left|a_n\right|} = L
+\end{displaymath}
+\\
+If $L < 1$ then the series is absolutely convergent.\\
+If $L > 1\text{ or }L = \infty$ then the series is divergent.\\
+If $L = 1$ then the nothing about the series can be concluded.
 
 
 
