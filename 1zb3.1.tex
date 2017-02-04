@@ -157,6 +157,12 @@ s_n = \sum_{i=1}^{n} a_i = a_1 + a_2 + \dots + a_n
 \begin{displaymath}
 s = \sum_{n=1}^{\infty} a_n = a_1 + a_2 + \dots + a_n + \dots
 \end{displaymath}
+\\
+Suppose $\sum a_n =3$ and $s_n$ is the $n$th partial sum of the series.\\
+Since $\sum a_n$ converges on $3$, $\lim_{n->\infty} a_n = 0$ must be true.\\
+This is a fundamental theorem, if a series is convergent then the limit of its sequence is 0.\\
+However, this does not mean that if the limit of a sequence is 0 that its series is convergent.\\
+Since $\sum a_n$ converges on $3$, $\lim_{n->\infty} s_n = 3$.
 
 
 \subsection{Example}
@@ -191,6 +197,32 @@ The sum of a convergent geometric series is defined by the following.\\
 \begin{displaymath}
 \sum_{n=1}^{\infty} ar^{n-1} = \frac{a}{1-r}
 \end{displaymath}
+
+
+\subsection{Sum and Difference Theorem}
+
+The following are all convergent series if $\sum a_n$ and $\sum b_n$ are both convergent.
+
+\begin{itemize}
+    \item $\sum ca_n = c\sum a_n$
+    \item $\sum (a_n + b_n) = \sum a_n + \sum b_n$
+    \item $\sum (a_n - b_n) = \sum a_n - \sum b_n$
+\end{itemize}
+If $\sum a_n$ was convergent and $\sum b_n$ was divergent, you could use this
+theorem to show the divergence of $\sum (a_n + b_n)$.
+By the theorem, $\sum (a_n + b_n) - a_n$ would be convergent if both
+$\sum a_n$ and $\sum b_n$ were. This is equal to just $\sum b_n$.
+However, since we know $\sum b_n$ is divergent, $\sum (a_n + b_n)$ must also
+be divergent.\\
+\\
+If we were given a power series $\sum (c_n + d_n)x^n$ and told that told that
+$\sum c_nx^n$ has a radius of convergence 2 and that $\sum d_nx^n$ has a
+radius of covergent 3, we can determine the radius of convergence for the
+whole series.\\
+$\sum c_nx^n$ only converges if $|x| < 2$ and $\sum d_nx^n$ only converges if
+$|x| < 3$. We know from this theorem that both series must converge for the
+sum to be convergent. Thus $\sum (c_n+d_n)x^n$ is convergent for $|x| < 2$ and
+has a radius of convergence 2.
 
 
 \subsection{Test for Divergence}
@@ -321,6 +353,16 @@ If $L < 1$ then the series is absolutely convergent.\\
 If $L > 1\text{ or }L = \infty$ then the series is divergent.\\
 If $L = 1$ then the nothing about the series can be concluded.
 
+
+\subsection{Product of Convergent Series}
+
+If two series are divergent, their product is not necessarily divergent.\\
+\begin{align*}
+    a_n = b_n &= \frac{(-1)^n}{\sqrt{n}}\\
+    a_nb_n &= \frac{1}{n}
+\end{align*}
+\\
+$\sum a_n$ and $\sum b_n$ are convergent by the alternating series test. $\sum a_nb_n$ is divergent.
 
 
 \end{document}
