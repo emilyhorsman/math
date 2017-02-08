@@ -30,6 +30,14 @@ $$
 $$
 
 
+\subsection{Symmetric Matrix}
+
+A square matrix $A$ where $A = A^T$. Thus, $(A)_{ij} = (A)_{ji}$.
+$$
+\begin{bmatrix}1 & 9\\9 & 2\end{bmatrix}
+$$
+
+
 \section{Equivalence Theorem}
 
 If $A$ is an $n \times n$ matrix, then the following statements are equivalent. That is, if one is true, the rest is true, as they are logically equivalent.
@@ -45,3 +53,10 @@ If $A$ is an $n \times n$ matrix, then the following statements are equivalent. 
 
 
 \end{document}
+
+\iffalse
+Ax - \lambda x = 0
+Infinitely many solutions means det(A - \lambda I) = 0
+Exactly one solution means det(A - \lambda I) \neq 0 (this means the matrix is invertible, which means it has exactly one solution)
+The bases is all the distinct eigenvectors
+\fi
