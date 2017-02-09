@@ -3,6 +3,7 @@
 \usepackage[letterpaper, margin=0.5in]{geometry}
 \usepackage{amsmath}
 \DeclareMathSizes{12}{13}{9.5}{9}
+\DeclareMathOperator{\adj}{adj}
 
 \begin{document}
 
@@ -62,6 +63,26 @@ If $A$ is an $n \times n$ matrix, then the following statements are equivalent. 
     \item $det(A) \neq 0$.
     \item $\lambda = 0$ is not an eigenvalue of $A$.
 \end{itemize}
+
+
+\section{Determinant Properties}
+
+
+\subsection{Adjoint Matrices}
+
+We know the following:
+\begin{align*}
+    A\adj(A) &= \det(A)I\\
+    \adj(A) &= A^{-1}\det(A)I
+\end{align*}
+We can then find the determinant of the adjoint of a matrix in terms of the determinant of the original matrix.
+\begin{align*}
+    A &= \adj(B)\\
+    A &= B^{-1}\det(B)I\\
+    \det(A) &= \det(B^{-1}) \det(\det(B)) \det(I)\\
+    \det(A) &= \det(B)^{-1} \det(B)^n 1\\
+    \det(A) &= \det(B)^{n-1}
+\end{align*}
 
 
 \end{document}
