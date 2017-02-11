@@ -4,11 +4,57 @@
 \usepackage{amsmath}
 \DeclareMathSizes{12}{13}{9.5}{9}
 \DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\tr}{tr}
 
 \begin{document}
 
 
 \section{Definitions}
+
+
+\subsection{Row Echelon Form}
+
+Row Echelon Form:
+\begin{itemize}
+    \item A nonzero row must have a leftmost ``leading'' 1. $\begin{bmatrix}0 1 0 0\end{bmatrix}$
+    \item A nonzero row below another nonzero row must have its leading 1 farther to the right.
+    \item Any zero rows must be grouped together at the bottom of the matrix.
+    \item This form is not unique.
+\end{itemize}
+$$
+\begin{bmatrix}
+    0 & 1 & 2 & 6 & 0\\
+    0 & 0 & 1 & -1 & 0\\
+    0 & 0 & 0 & 0 & 1\\
+    0 & 0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+Reduced Row Echelon Form:
+\begin{itemize}
+    \item Any column with a leading 1 must be zero elsewhere.
+    \item This form is unique for any system.
+\end{itemize}
+$$
+\begin{bmatrix}
+    0 & 1 & 0 & 6 & 0\\
+    0 & 0 & 1 & -1 & 0\\
+    0 & 0 & 0 & 0 & 1\\
+    0 & 0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+
+\subsection{Pivot Positions and Columns}
+
+The position of a leading 1 is a pivot position of its matrix. Columns with a pivot position are pivot columns.
+
+
+\subsection{Leading and Free Variables}
+
+Leading: Corresponding to a leading 1 in an augmented matrix.\\
+Free: The remaining variables. Can be assigned a parameter.
 
 
 \subsection{Trivial Solution}
@@ -31,6 +77,17 @@ $$
 $$
 
 
+\subsection{Homogeneous System}
+
+A matrix equation equal to a zero vector. All constant terms are 0. $Ax = 0$. A homogeneous system must be consistent. It will have either only the trivial solution or will have infinitely many solutions.
+
+
+\subsection{Consistent}
+
+A system is consistent if it has one or infinitely many solutions. There is no other option for a consistent system. An inconsistent system has no solutions.\\
+A single linear equation with two or more unknowns must have infinitely many solutions.
+
+
 \subsection{Symmetric Matrix}
 
 A square matrix $A$ where $A = A^T$. Thus, $(A)_{ij} = (A)_{ji}$.
@@ -51,6 +108,72 @@ All the main diagonal entries must be 0.
 \end{align*}
 
 
+\subsection{Linear Combination}
+
+The sum of multiple, equally sized matrices with multiple scalar coefficients can be expressed as $c_1A_1 + c_2A_2 + \dots + c_rA_r$.\\
+This can be used to express matrix products. $A$ is an $m \times n$ matrix and $x$ is an $n \times 1$ column vector.
+$$
+Ax =
+\begin{bmatrix}
+    a_{11}x_1 + \dots + a_{1n}x_n\\
+    \vdots\\
+    a_{m1}x_1 + \dots + a_{mn}x_n
+\end{bmatrix}
+=
+x_1
+\begin{bmatrix}
+    a_{11}\\
+    a_{m1}
+\end{bmatrix}
++ \dots +
+x_n
+\begin{bmatrix}
+    a_{1n}\\
+    a_{mn}
+\end{bmatrix}
+$$
+
+
+\subsection{Column-Row Expansion}
+
+\begin{align*}
+    AB &=
+\left[ \begin{array}{c|c}
+    2 & 3\\
+    1 & 4\\
+\end{array} \right]
+\left[ \begin{array}{ccc}
+    1 & 4 & 6\\
+    \hline
+    6 & 3 & 5
+\end{array} \right]\\
+    &=
+    \begin{bmatrix}2\\1\end{bmatrix}
+    \begin{bmatrix}1 & 4 & 6\end{bmatrix}
+        +
+    \begin{bmatrix}3\\4\end{bmatrix}
+    \begin{bmatrix}6 & 3 & 5\end{bmatrix}
+    \\
+    &=
+    \begin{bmatrix}2 & 8 & 12\\1 & 4 & 6\end{bmatrix}
+        +
+    \begin{bmatrix}18 & 9 & 15\\24 & 12 & 20\end{bmatrix}
+    \\
+    &=
+    \begin{bmatrix}20&17&27\\25&16&26\end{bmatrix}
+\end{align*}
+
+
+\subsection{Trace}
+
+$\tr(A)$ of a square matrix $A$ is defined by the sum of the entries on the main diagonal of $A$.\\
+\begin{align*}
+    \tr(AB) &\neq \tr(A)\tr(B)\\
+    \tr(A^T) &= \tr(A)\\
+    \tr(cA) &= c\tr(A)
+\end{align*}
+
+
 \section{Equivalence Theorem}
 
 If $A$ is an $n \times n$ matrix, then the following statements are equivalent. That is, if one is true, the rest is true, as they are logically equivalent.
@@ -60,7 +183,7 @@ If $A$ is an $n \times n$ matrix, then the following statements are equivalent. 
     \item The reduced row echelon form of $A$ is $I_n$.
     \item $A$ is expressible as a product of elementary matrices. $A = E_nE_{n-1}\dots E_1I_n$.
     \item $Ax = b$ has exactly one solution for every $n \times 1$ matrix $b$.
-    \item $det(A) \neq 0$.
+    \item $\det(A) \neq 0$.
     \item $\lambda = 0$ is not an eigenvalue of $A$.
 \end{itemize}
 
@@ -83,6 +206,19 @@ We can then find the determinant of the adjoint of a matrix in terms of the dete
     \det(A) &= \det(B)^{-1} \det(B)^n 1\\
     \det(A) &= \det(B)^{n-1}
 \end{align*}
+
+
+\section{Theorems}
+
+
+\subsection{Free Variable Theorem and Homogeneous Linear System Theorems}
+
+These theorems apply only to homogeneous linear systems (HLS).
+\begin{itemize}
+    \item An HLS in reduced row echelon form with $n$ unknowns and $r$ nonzero rows (thus, $r$ leading 1s) has $n - r$ free variables.
+    \item An HLS with more unknowns than equations has infinitely many solutions.
+    \item An HLS of $n$ equations with $n$ leading 1s in reduced row echelon form has only the trivial solution (see equivalence theorem).
+\end{itemize}
 
 
 \end{document}
