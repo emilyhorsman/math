@@ -174,6 +174,32 @@ $\tr(A)$ of a square matrix $A$ is defined by the sum of the entries on the main
 \end{align*}
 
 
+\subsection{Nonsingular Matrix}
+
+A matrix that is invertible.
+
+
+\subsection{Determinant}
+
+The determinant of a $2\times2$ matrix $\begin{bmatrix}a&b\\c&d\end{bmatrix}$ is $ad - bc$.
+
+
+\subsection{$2\times2$ Inverse}
+
+The inverse of a $2\times2$ matrix is $\displaystyle\frac{1}{ad - bc} \begin{bmatrix}d&-b\\-c&a\end{bmatrix}$.
+
+
+\subsection{Row Equivalency}
+
+Two matrices are row equivalent if either can be obtained from the other by a sequence of elementary row operations.\\
+If $A$ and $B$ are row equivalent, and if $B$ and $C$ are row equivalent, then $A$ and $C$ are row equivalent.
+
+
+\subsection{Elementary Matrix}
+
+A matrix that can be obtained from an identity matrix by a single elementary row operation.
+
+
 \section{Equivalence Theorem}
 
 If $A$ is an $n \times n$ matrix, then the following statements are equivalent. That is, if one is true, the rest is true, as they are logically equivalent.
@@ -182,9 +208,13 @@ If $A$ is an $n \times n$ matrix, then the following statements are equivalent. 
     \item $Ax = 0$ has only the trivial solution.
     \item The reduced row echelon form of $A$ is $I_n$.
     \item $A$ is expressible as a product of elementary matrices. $A = E_nE_{n-1}\dots E_1I_n$.
-    \item $Ax = b$ has exactly one solution for every $n \times 1$ matrix $b$.
+    \item $Ax = b$ has exactly one solution for every $n \times 1$ matrix $b$. $x = A^{-1}b$.
     \item $\det(A) \neq 0$.
     \item $\lambda = 0$ is not an eigenvalue of $A$.
+\end{itemize}
+Extra:
+\begin{itemize}
+    \item If $A$ is a singular (non-invertible) square matrix then the linear system $Ax = 0$ has infinitely many solutions.
 \end{itemize}
 
 
@@ -218,6 +248,77 @@ These theorems apply only to homogeneous linear systems (HLS).
     \item An HLS in reduced row echelon form with $n$ unknowns and $r$ nonzero rows (thus, $r$ leading 1s) has $n - r$ free variables.
     \item An HLS with more unknowns than equations has infinitely many solutions.
     \item An HLS of $n$ equations with $n$ leading 1s in reduced row echelon form has only the trivial solution (see equivalence theorem).
+\end{itemize}
+
+
+\subsection{Inverse Theorems}
+
+\begin{itemize}
+    \item If a square matrix has a zero row or column, it is singular (not invertible). The definition of an invertible matrix is $AA^{-1} = I$. If a zero row exists, the product could not reduce down to the identity matrix.
+    \item If $B$ and $C$ are both inverses of $A$ then $B = C$. An invertible matrix has only one inverse.
+    \item $(AB)^{-1} = B^{-1}A^{-1}$. Note the reverse order. This means that to cancel out the matrix $A$ in $ABC = I$ we would need to multiply $A^{-1}$ on the LHS of each side. $A^{-1}ABC = A^{-1}I \Rightarrow BC = A^{-1}I$.
+    \item If a product of matrices is non-invertible (singular) then at least one of the factors must also be singular.
+    \item $(A^{-1})^{-1} = A$
+    \item $(A^n)^{-1} = A^{-n} = (A^{-1})^n$
+    \item $(kA)^{-1} = k^{-1}A^{-1}$ with $k$ being a scalar, thus $k^{-1} = \frac{1}{k}$.
+    \item If $AB$ is invertible then $A$ and $B$ must also both be invertible.
+    \item If $A$ and/or $B$ are not invertible, then neither is $AB$.
+\end{itemize}
+
+
+\subsection{Transpose Theorems}
+
+\begin{itemize}
+    \item $(A^T)^T = A$
+    \item $(A \pm B)^T = A^T \pm B^T$
+    \item $(kA)^T = kA^T$
+    \item $(AB)^T = B^TA^T$ (note the reverse order)
+    \item If $A$ is invertible then $A^T$ is also invertible. $(A^T)^{-1} = (A^{-1})^T$.
+\end{itemize}
+
+
+\subsection{Elementary Theorems}
+
+\begin{itemize}
+    \item Every elementary matrix is invertible.
+    \item The inverse of any elementary matrix is also an elementary matrix.
+    \item The product of matrix $A$ and an elementary matrix is the matrix that results when the corresponding row operation is performed on $A$.
+    \item The inverse of a matrix can be obtained by performing the same row operations that reduce the matrix to the identity to an identity matrix. If $E_1E_0A = I$ then $A^{-1} = E_1E_0I$.
+\end{itemize}
+
+
+\subsection{Diagonal Matrix Theorems}
+
+\begin{itemize}
+    \item Invertible if all of its diagonal entries are nonzero.
+    \item Powers of diagonal matrices (including their inverse) are easy to compute, $\begin{bmatrix}a&0\\0&b\end{bmatrix}^{-1} = \begin{bmatrix}\frac{1}{a} & 0\\0 & \frac{1}{b}\end{bmatrix}$.
+    \item If $D$ is a diagonal matrix then the product $AD$ can be found by multiplying the entry of each column in $A$ by the corresponding diagonal entry (entries in first column of $A$ multiplied by $D_{11}$. The product of $DA$ can be found by multiplying the entry of each row in $A$ by the corresponding diagonal entry (entries in first row of $A$ multiplied by $D_{11}$.
+        \begin{align*}
+            \begin{bmatrix}d_1&0\\0&d_2\end{bmatrix}\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix} &= \begin{bmatrix}d_1a_{11}&d_1a_{12}\\d_2a_{21}&d_2a_{22}\end{bmatrix}\\
+            \begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}\begin{bmatrix}d_1&0\\0&d_2\end{bmatrix} &= \begin{bmatrix}d_1a_{11}&d_2a_{12}\\d_1a_{21}&d_2a_{22}\end{bmatrix}
+        \end{align*}
+\end{itemize}
+
+
+\subsection{Triangular Matrix Theorems}
+
+\begin{itemize}
+    \item The transpose of a triangular matrix is the opposite kind of triangular matrix (upper to lower and vise-versa).
+    \item The product of same-side triangular matrices is the same side (product of upper triangular matrices is upper triangular).
+    \item A triangular matrix is invertible if its diagonal entries are all nonzero.
+    \item The inverse of a triangular matrix is the same side.
+\end{itemize}
+
+
+\subsection{Symmetric Theorems}
+
+If $A$ and $B$ are symmetric with the same size and $k$ is a scalar constant then the following theorems hold.
+\begin{itemize}
+    \item $A \pm B$ is symmetric.
+    \item $kA$ is symmetric.
+    \item $AB$ is symmetric if $A$ and $B$ commute.
+    \item If $A$ is invertible then $A^{-1}$ is symmetric.
+    \item If $A$ is invertible then $AA^T$ and $A^TA$ are also invertible.
 \end{itemize}
 
 
