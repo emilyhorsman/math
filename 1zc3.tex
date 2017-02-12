@@ -179,14 +179,25 @@ $\tr(A)$ of a square matrix $A$ is defined by the sum of the entries on the main
 A matrix that is invertible.
 
 
-\subsection{Determinant}
+\subsection{Determinant and Cofactor Expansion}
 
-The determinant of a $2\times2$ matrix $\begin{bmatrix}a&b\\c&d\end{bmatrix}$ is $ad - bc$.
+The determinant of a $2\times2$ matrix $\begin{bmatrix}a&b\\c&d\end{bmatrix}$ is $ad - bc$.\\
+    The determinant of a square matrix can be determined by choosing a row or column and multiplying each entry by the corresponding cofactor. For instance, the determinant of the matrix $A$ can be found by choosing the first row, $\det(A) = a_{11}C_{11} + \dots + a_{1n}C_{1n}$.
 
 
 \subsection{$2\times2$ Inverse}
 
 The inverse of a $2\times2$ matrix is $\displaystyle\frac{1}{ad - bc} \begin{bmatrix}d&-b\\-c&a\end{bmatrix}$.
+
+
+\subsection{Minor}
+
+The minor of entry $A_{ij}$ is the determinant of the submatrix $A$ with row $i$ and column $j$ deleted.
+
+
+\subsection{Cofactor}
+
+The cofactor of entry $A_{ij}$ is the minor of entry $A_{ij} * (-1)^{i + j}$. If $i + j$ is even, the minor retains its sign.
 
 
 \subsection{Row Equivalency}
@@ -307,6 +318,7 @@ These theorems apply only to homogeneous linear systems (HLS).
     \item The product of same-side triangular matrices is the same side (product of upper triangular matrices is upper triangular).
     \item A triangular matrix is invertible if its diagonal entries are all nonzero.
     \item The inverse of a triangular matrix is the same side.
+    \item The determinant of a triangular matrix is the product of the entries on the main diagonal, $\det(A) = a_{11}a_{22}\dots a_{nn}$.
 \end{itemize}
 
 
