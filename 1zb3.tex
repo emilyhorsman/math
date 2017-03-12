@@ -373,4 +373,45 @@ $$
 $$
 
 
+\subsection{Integrating and Differentiating Power Series}
+
+We know the sum of a simple geometric series with $a = 1$ and $x = r$ is the following. Paying attention to the lower bound of summation is extremely important when working with power series.
+$$
+\sum_{n=0}^{\infty} x^n = \frac{1}{1-x}
+$$
+Differentiating a sum requires us to differentiate each term.
+\begin{align*}
+    \sum_{n=0}^{3} x^n &= 1 + x + x^2 + x^3\\
+    \frac{d}{dx}\left(\sum_{n=0}^{3}\right) x^n &= \sum_{n=0}^{3} \left(\frac{d}{dx}x^n\right) = \frac{d}{dx}1 + \frac{d}{dx}x + \frac{d}{dx}x^2 + \frac{d}{dx}x^3
+\end{align*}
+If we differentiate the original power series and its sum we get the following.
+\begin{align*}
+    \frac{d}{dx}\left(\sum_{n=0}^{\infty} x^n\right) &= \frac{d}{dx}\left(\frac{1}{1-x}\right)\\
+    \sum_{n=1}^{\infty} nx^{n-1} &= \frac{1}{(1-x)^2}
+\end{align*}
+This yields a general rule for differentiating power series. A similar rule works for integrating.
+\begin{align*}
+    \frac{d}{dx}\left( \sum_{n=0}^{\infty} c_n(x-a)^n \right) &= \sum_{n=1}^{\infty} nc_n(x-a)^{n-1}\\
+    \int \left( \sum_{n=0}^{\infty} c_n(x-a)^n \right) &= C + \sum_{n=0}^{\infty} c_n \frac{(x-a)^{n+1}}{n+1}
+\end{align*}
+With both differentiating and integration, the \textbf{radii of convergence remains the same}. Differentiating and integrating power series does not affect their radii of convergence.
+\begin{align*}
+    \int \frac{1}{1-t} = - \ln(1-t)
+\end{align*}
+
+
+\subsection{Important Maclaurin Series}
+
+These should be memorized.
+\begin{align*}
+    \frac{1}{1-x} &= \sum_{n=0}^{\infty}=1+x+x^2+x^3+\dots & R = 1\\
+    e^x &= \sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots & R = \infty\\
+    \sin x &= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \dots & R = \infty\\
+    \cos x &= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \dots & R = \infty\\
+    \tan^{-1} x &= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)} = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \dots & R = 1\\
+    \ln(1+x) &= \sum_{n=1}^{\infty} (-1)^{n-1} \frac{x^n}{n} = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \dots & R = 1\\
+    (1+x)^k &= \sum_{n=0}^{\infty} {{k}\choose{n}} x^n = 1 + kx + \frac{k(k-1)}{2!}x^2 + \frac{k(k-1)(k-2)}{3!}x^3 + \dots & R = 1
+\end{align*}
+
+
 \end{document}
